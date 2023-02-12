@@ -13,27 +13,17 @@ int main(void){
     size_t size = 0;
     
 //*****************************************reading from .txt and storing data in array**********************//
-/**
-    FILE *fp = fopen("bram_a", "r");
-	fseek(fp, 0, SEEK_END);
-	size = ftell(fp);
-	printf("velicina %d\n", size);
-	rewind(fp);
-	buffer_bram_a = malloc((size+1) * sizeof(*buffer_bram_a));
-	fread(buffer_bram_a, size, 1, fp);
-	buffer_bram_a[size] = '\0';
-	printf("%s\n", buffer_bram_a);	
 
-    FILE *fp = fopen("bram_b", "r");
-	fseek(fp, 0, SEEK_END);
-	size = ftell(fp);
-	printf("velicina %d\n", size);
-	rewind(fp);
-	buffer_bram_b = malloc((size+1) * sizeof(*buffer_bram_b));
-	fread(buffer_bram_b, size, 1, fp);
-	buffer_bram_b[size] = '\0';
-	printf("%s\n", buffer_bram_b);	
-*/
+    fp = fopen("bram_a.txt","r");
+    if (NULL == fp) {
+        printf("File can't be opened \n");
+    }
+    size = ftell(fp);
+    buffer_bram_a = malloc((size+1) * sizeof(*buffer_bram_a));
+    fread(buffer_bram_a, size, 1, fp);
+    buffer[size] = '\0';
+	printf("%s\n", buffer);	
+
 //**************************************************************************************************************//
 
 
