@@ -6,7 +6,7 @@
 
 int main(void){
 
-    
+    FILE *fp;
     char *buffer_bram_a = NULL;
     char *buffer_bram_b = NULL;
 	int  *bram_a_txt_array, *bram_b_txt_array;
