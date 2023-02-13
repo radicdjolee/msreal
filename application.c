@@ -34,10 +34,10 @@ int main(void){
 		printf("Problem pri zatvaranju text_file bram_a.txt\n");
 		return -1;	
 	}
-	
+
 	printf("********************************\n");
 	printf("*************BRAM_A*************\n");
-	//printf(text_bram_a);
+	printf(text_bram_a);
 	//printf("\n");
 	printf("********************************\n");
 
@@ -72,6 +72,7 @@ int main(void){
 	//printf("\n");
 	printf("********************************\n");
 
+*/
 //***************************UPISUJEMO U /dev/bram_1***************************
 
 	fp = fopen("/dev/bram_a", "w");
@@ -91,7 +92,7 @@ int main(void){
 
 
 //*************************************************************************************************************
-
+/*
 fp = fopen("/dev/imdct", "w");
 	
 	if(fp==NULL){
