@@ -7,11 +7,11 @@
 int main(void){
 
     FILE *fp;
-    char *text_bram_a= NULL;
-    char *text_bram_b = NULL;
+    char *text_bram_a;
+    char *text_bram_b;
 	int  *bram_a_txt_array, *bram_b_txt_array;
     long numbytes;
-	char *text = "2,2,2,2,2,2,2,2,2,2,2,";
+	//char *text = "2,2,2,2,2,2,2,2,2,2,2,";
     
 //**********************reading from bram_a.txt and storing data in array**********************//
 
@@ -79,7 +79,7 @@ int main(void){
 		return -1;	
 	}
 
-	fputs(text,fp);
+	fputs(text_bram_a,fp);
 
 	if(fclose(fp)){	
 		printf("Problem pri zatvaranju /dev/bram_a.\n");
