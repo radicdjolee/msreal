@@ -7,6 +7,7 @@
 int main(void){
 
     FILE *fp;
+	int fa, fb, fc, fd, fe, fg, fh, fl;
     char *text_bram_a = NULL;
     char *text_bram_b;
 	int  *bram_a_txt_array, *bram_b_txt_array;
@@ -104,9 +105,9 @@ int main(void){
 */
 //*************************************************************************************************************
 
-fp = fopen("/dev/IMDCT", "w");
+fa = fopen("/dev/IMDCT", "w");
 	
-	if(fp==NULL){
+	if(fa==NULL){
 		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
@@ -117,17 +118,17 @@ fp = fopen("/dev/IMDCT", "w");
 	printf("	**Upisujem block_type_00=0 u /dev/IMDCT.**\n");
 	printf("	********************************\n");
 	
-	fputs("block_type_00 = 0",fp);
+	fputs("block_type_00 = 0",fa);
 	
-	if(fclose(fp)){
+	if(fclose(fa)){
 		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
 
-fp = fopen("/dev/IMDCT", "w");
+fb = fopen("/dev/IMDCT", "w");
 	
-	if(fp==NULL){
+	if(fb==NULL){
 		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
@@ -138,17 +139,17 @@ fp = fopen("/dev/IMDCT", "w");
 	printf("	**Upisujem block_type_01=0 u /dev/IMDCT.**\n");
 	printf("	********************************\n");
 	
-	fputs("block_type_01 = 0",fp);
+	fputs("block_type_01 = 0",fb);
 	
-	if(fclose(fp)){
+	if(fclose(fb)){
 		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
 
-fp = fopen("/dev/IMDCT", "w");
+fc = fopen("/dev/IMDCT", "w");
 	
-	if(fp==NULL){
+	if(fc==NULL){
 		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
@@ -159,17 +160,17 @@ fp = fopen("/dev/IMDCT", "w");
 	printf("	**Upisujem block_type_10=0 u /dev/IMDCT.**\n");
 	printf("	********************************\n");
 	
-	fputs("block_type_10 = 0",fp);
+	fputs("block_type_10 = 0",fc);
 	
-	if(fclose(fp)){
+	if(fclose(fc)){
 		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
 
-fp = fopen("/dev/IMDCT", "w");
+fd = fopen("/dev/IMDCT", "w");
 	
-	if(fp==NULL){
+	if(fd==NULL){
 		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
@@ -180,17 +181,17 @@ fp = fopen("/dev/IMDCT", "w");
 	printf("	**Upisujem block_type_10=0 u /dev/IMDCT.**\n");
 	printf("	********************************\n");
 	
-	fputs("block_type_10 = 0",fp);
+	fputs("block_type_10 = 0",fd);
 	
-	if(fclose(fp)){
+	if(fclose(fd)){
 		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
 
-fp = fopen("/dev/IMDCT", "w");
+fe = fopen("/dev/IMDCT", "w");
 	
-	if(fp==NULL){
+	if(fe==NULL){
 		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
@@ -201,17 +202,17 @@ fp = fopen("/dev/IMDCT", "w");
 	printf("	**Upisujem block_type_11=0 u /dev/IMDCT.**\n");
 	printf("	********************************\n");
 	
-	fputs("block_type_11 = 0",fp);
+	fputs("block_type_11 = 0",fe);
 	
-	if(fclose(fp)){
+	if(fclose(fe)){
 		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
 
-fp = fopen("/dev/IMDCT", "w");
+fg = fopen("/dev/IMDCT", "w");
 	
-	if(fp==NULL){
+	if(fg==NULL){
 		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
@@ -222,17 +223,17 @@ fp = fopen("/dev/IMDCT", "w");
 	printf("	**Upisujem gr=0 u /dev/IMDCT.**\n");
 	printf("	********************************\n");
 	
-	fputs("gr = 0",fp);
+	fputs("gr = 0",fg);
 	
-	if(fclose(fp)){
+	if(fclose(fg)){
 		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
 
-fp = fopen("/dev/IMDCT", "w");
+fh = fopen("/dev/IMDCT", "w");
 	
-	if(fp==NULL){
+	if(fh==NULL){
 		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
@@ -243,17 +244,17 @@ fp = fopen("/dev/IMDCT", "w");
 	printf("	**Upisujem ch=0 u /dev/IMDCT.**\n");
 	printf("	********************************\n");
 	
-	fputs("ch = 0",fp);
+	fputs("ch = 0",fh);
 	
-	if(fclose(fp)){
+	if(fclose(fh)){
 		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
 
-fp = fopen("/dev/IMDCT", "w");
+fl = fopen("/dev/IMDCT", "w");
 	
-	if(fp==NULL){
+	if(fl==NULL){
 		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
@@ -264,9 +265,9 @@ fp = fopen("/dev/IMDCT", "w");
 	printf("	**Upisujem start=1 u /dev/IMDCT.**\n");
 	printf("	********************************\n");
 	
-	fputs("start = 1",fp);
+	fputs("start = 1",fl);
 	
-	if(fclose(fp)){
+	if(fclose(fl)){
 		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
