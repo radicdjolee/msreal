@@ -33,10 +33,11 @@ int main(void){
 		printf("Problem pri zatvaranju text_file bram_a.txt\n");
 		return -1;	
 	}
+	sleep(0.5);
 	printf("********************************\n");
 	printf("*************BRAM_A*************\n");
-	printf(text_bram_a);
-	printf("\n");
+	//printf(text_bram_a);
+	//printf("\n");
 	printf("********************************\n");
 
 //**********************reading from bram_b.txt and storing data in array**********************//
@@ -61,15 +62,15 @@ int main(void){
 		printf("Problem pri zatvaranju text_file bram_b.txt\n");
 		return -1;	
 	}
-
+	sleep(0.5);
 	printf("********************************\n");
 	printf("*************BRAM_B*************\n");
-	printf(text_bram_b);
-	printf("\n");
+	//printf(text_bram_b);
+	//printf("\n");
 	printf("********************************\n");
 
 //***************************UPISUJEMO U /dev/bram_1***************************//
-
+/*
 	fp = fopen("/dev/bram_a", "w");
 	
 	if(fp==NULL){
@@ -83,7 +84,7 @@ int main(void){
 		printf("Problem pri zatvaranju /dev/bram_a.\n");
 		return -1;	
 	}
-
+*/
 
 //**************************************************************************************************************//
 /*
