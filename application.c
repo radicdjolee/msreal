@@ -7,65 +7,64 @@
 int main(void){
 
     FILE *fp;
-	FILE *textfile;
-    char *buffer_bram_a;
-    char *buffer_bram_b = NULL;
+    char *text_bram_a= NULL;
+    char *text_bram_b = NULL;
 	int  *bram_a_txt_array, *bram_b_txt_array;
     long numbytes;
     
 //**********************reading from bram_a.txt and storing data in array**********************//
 
-    textfile = fopen("bram_a.txt","r");
-    if (textfile == NULL) {
+    fp = fopen("bram_a.txt","r");
+    if (fp == NULL) {
         printf("File can't be opened \n");
     }
 
-	fseek(textfile, 0L, SEEK_END);
-	numbytes = ftell(textfile);
-	fseek(textfile, 0L, SEEK_SET);
+	fseek(fp, 0L, SEEK_END);
+	numbytes = ftell(fp);
+	fseek(fp, 0L, SEEK_SET);
 
-	buffer_bram_a = (char*)calloc(numbytes, sizeof(char));
-	if(buffer_bram_a == NULL){
-		printf("buffer_bram_a == NULL \n");
+	text_bram_a = (char*)calloc(numbytes, sizeof(char));
+	if(text_bram_a == NULL){
+		printf("text_bram_a == NULL \n");
 	}
 	
-	fread(buffer_bram_a, sizeof(char), numbytes, textfile);
-	if(fclose(textfile)){
+	fread(text_bram_a, sizeof(char), numbytes, fp);
+	if(fclose(fp)){
 		printf("Problem pri zatvaranju text_file bram_a.txt\n");
 		return -1;	
 	}
 	printf("********************************\n");
 	printf("*************BRAM_A*************\n");
-	printf(buffer_bram_a);
+	printf(text_bram_a);
 	printf("\n");
 	printf("********************************\n");
 
 //**********************reading from bram_b.txt and storing data in array**********************//
 
-    textfile = fopen("bram_b.txt","r");
-    if (textfile == NULL) {
+    fp = fopen("bram_b.txt","r");
+    if (fp == NULL) {
         printf("File can't be opened \n");
     }
 
-	fseek(textfile, 0L, SEEK_END);
-	numbytes = ftell(textfile);
-	fseek(textfile, 0L, SEEK_SET);
+	fseek(fp, 0L, SEEK_END);
+	numbytes = ftell(fp);
+	fseek(fp, 0L, SEEK_SET);
 
-	buffer_bram_b = (char*)calloc(numbytes, sizeof(char));
-	if(buffer_bram_b == NULL){
-		printf("buffer_bram_b == NULL \n");
+	text_bram_b = (char*)calloc(numbytes, sizeof(char));
+	if(text_bram_b == NULL){
+		printf("text_bram_b == NULL \n");
 	}
 	
-	fread(buffer_bram_b, sizeof(char), numbytes, textfile);
+	fread(text_bram_b, sizeof(char), numbytes, fp);
 
-	if(fclose(textfile)){
+	if(fclose(fp)){
 		printf("Problem pri zatvaranju text_file bram_b.txt\n");
 		return -1;	
 	}
 
 	printf("********************************\n");
 	printf("*************BRAM_B*************\n");
-	printf(buffer_bram_b);
+	printf(text_bram_b);
 	printf("\n");
 	printf("********************************\n");
 
@@ -78,7 +77,7 @@ int main(void){
 		return -1;	
 	}
 
-	fputs(buffer_bram_a,fp);
+	fputs(text_bram_a,fp);
 
 	if(fclose(fp)){	
 		printf("Problem pri zatvaranju /dev/bram_a.\n");
