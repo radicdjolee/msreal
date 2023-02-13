@@ -31,11 +31,37 @@ int main(void){
 	
 	fread(buffer_bram_a, sizeof(char), numbytes, textfile);
 	fclose(textfile);
+	printf("********************************\n");
+	printf("*************BRAM_A*************\n");
 	printf(buffer_bram_a);
+	printf("\n");
+	printf("********************************\n");
+
+
+    textfile = fopen("bram_b.txt","r");
+    if (textfile == NULL) {
+        printf("File can't be opened \n");
+    }
+
+	fseek(textfile, 0L, SEEK_END);
+	numbytes = ftell(textfile);
+	fseek(textfile, 0L, SEEK_SET);
+
+	buffer_bram_b = (char*)calloc(numbytes, sizeof(char));
+	if(buffer_bram_b == NULL){
+		printf("buffer_bram_b == NULL \n");
+	}
+	
+	fread(buffer_bram_b, sizeof(char), numbytes, textfile);
+	fclose(textfile);
+	printf("********************************\n");
+	printf("*************BRAM_B*************\n");
+	printf(buffer_bram_b);
+	printf("\n");
+	printf("********************************\n");
 
 //**************************************************************************************************************//
 /*
-
 fp = fopen("/dev/imdct", "w");
 	
 	if(fp==NULL){
