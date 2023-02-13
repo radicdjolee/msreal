@@ -4,6 +4,8 @@
 #include <stddef.h>
 #include <unistd.h>
 
+#define BLOCK_SIZE 2304
+
 int main(void){
 
     FILE *fp;
@@ -11,6 +13,8 @@ int main(void){
     char *text_bram_b = NULL;
 	int  *bram_a_txt_array, *bram_b_txt_array;
     long numbytes;
+	int fk;
+	
     
 //**********************reading from bram_a.txt and storing data in array**********************//
 
@@ -70,21 +74,30 @@ int main(void){
 	printf("********************************\n");
 
 //***************************UPISUJEMO U /dev/bram_1***************************//
-/*
-	fp = fopen("/dev/bram_a", "w");
+
+	fk = open("/dev/bram_a", O_RDWR|O_NDELAY);
 	
-	if(fp==NULL){
-		printf("Nije moguce otvoriti /dev/bram_a.\n");
-		return -1;	
+	if (fk<0)
+	{
+		printf("Cannot open /dev/bram_a for write\n");
+		return -1;
 	}
 
-	fputs(text_bram_a,fp);
-
-	if(fclose(fp)){	
-		printf("Problem pri zatvaranju /dev/bram_a.\n");
-		return -1;	
+	k=(int*)mmap(0, MAX_KERNEL_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fk, 0);
+		if(k == NULL) {
+			printf("\ncouldn't mmap\n");
+			return 0;
+		}
+	memcpy(k, text_bram_b, BLOCK_SIZE);
+	munmap(k, BLOCK_SIZE);
+	printf("bram_a done\n");
+	close(fk);
+	if(fk < 0)
+	{
+		printf("cannot close /dev/bram_a for write\n");
+		return -1;
 	}
-*/
+
 
 //**************************************************************************************************************//
 /*
