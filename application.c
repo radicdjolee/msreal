@@ -4,8 +4,6 @@
 #include <stddef.h>
 #include <unistd.h>
 
-#define BLOCK_SIZE 2304
-
 int main(void){
 
     FILE *fp;
@@ -13,8 +11,7 @@ int main(void){
     char *text_bram_b = NULL;
 	int  *bram_a_txt_array, *bram_b_txt_array;
     long numbytes;
-	int fk;
-	
+	char *text = "2,2,2,2,2,2,2,2,2,2,2,";
     
 //**********************reading from bram_a.txt and storing data in array**********************//
 
@@ -75,32 +72,23 @@ int main(void){
 
 //***************************UPISUJEMO U /dev/bram_1***************************//
 
-	fk = open("/dev/bram_a", O_RDWR|O_NDELAY);
+	fp = fopen("/dev/bram_a", "w");
 	
-	if (fk<0)
-	{
-		printf("Cannot open /dev/bram_a for write\n");
-		return -1;
+	if(fp==NULL){
+		printf("Nije moguce otvoriti /dev/bram_a.\n");
+		return -1;	
 	}
 
-	k=(int*)mmap(0, MAX_KERNEL_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fk, 0);
-		if(k == NULL) {
-			printf("\ncouldn't mmap\n");
-			return 0;
-		}
-	memcpy(k, text_bram_b, BLOCK_SIZE);
-	munmap(k, BLOCK_SIZE);
-	printf("bram_a done\n");
-	close(fk);
-	if(fk < 0)
-	{
-		printf("cannot close /dev/bram_a for write\n");
-		return -1;
+	fputs(text,fp);
+
+	if(fclose(fp)){	
+		printf("Problem pri zatvaranju /dev/bram_a.\n");
+		return -1;	
 	}
 
 
-//**************************************************************************************************************//
-/*
+//*************************************************************************************************************//
+
 fp = fopen("/dev/imdct", "w");
 	
 	if(fp==NULL){
@@ -121,8 +109,109 @@ fp = fopen("/dev/imdct", "w");
 		printf("Problem pri zatvaranju /dev/imdct.\n");
 		return -1;	
     }
-*/
 
+    fp = fopen("/dev/imdct", "w");
+	
+	if(fp==NULL){
+		
+		printf("Nije moguce otvoriti /dev/imdct.\n");
+		return -1;
+		
+	}
+	sleep(0.5);
+	printf("	********************************\n");
+	printf("	**Upisujem block_type_01=0 u /dev/imdct.**\n");
+	printf("	********************************\n");
+	
+	fputs("block_type_01=0",fp);
+	
+	if(fclose(fp)){
+		
+		printf("Problem pri zatvaranju /dev/imdct.\n");
+		return -1;	
+    }
+
+	if(fp==NULL){
+		
+		printf("Nije moguce otvoriti /dev/imdct.\n");
+		return -1;
+		
+	}
+	sleep(0.5);
+	printf("	********************************\n");
+	printf("	**Upisujem block_type_10=0 u /dev/imdct.**\n");
+	printf("	********************************\n");
+	
+	fputs("block_type_10=0",fp);
+	
+	if(fclose(fp)){
+		
+		printf("Problem pri zatvaranju /dev/imdct.\n");
+		return -1;	
+    }
+
+    fp = fopen("/dev/imdct", "w");
+	
+	if(fp==NULL){
+		
+		printf("Nije moguce otvoriti /dev/imdct.\n");
+		return -1;
+		
+	}
+	sleep(0.5);
+	printf("	********************************\n");
+	printf("	**Upisujem block_type_11=0 u /dev/imdct.**\n");
+	printf("	********************************\n");
+	
+	fputs("block_type_11=0",fp);
+	
+	if(fclose(fp)){
+		
+		printf("Problem pri zatvaranju /dev/imdct.\n");
+		return -1;	
+    }
+
+    fp = fopen("/dev/imdct", "w");
+	
+	if(fp==NULL){
+		
+		printf("Nije moguce otvoriti /dev/imdct.\n");
+		return -1;
+		
+	}
+	sleep(0.5);
+	printf("	********************************\n");
+	printf("	**Upisujem gr=0 u /dev/imdct.**\n");
+	printf("	********************************\n");
+	
+	fputs("gr=0",fp);
+	
+	if(fclose(fp)){
+		
+		printf("Problem pri zatvaranju /dev/imdct.\n");
+		return -1;	
+    }
+
+    fp = fopen("/dev/imdct", "w");
+	
+	if(fp==NULL){
+		
+		printf("Nije moguce otvoriti /dev/imdct.\n");
+		return -1;
+		
+	}
+	sleep(0.5);
+	printf("	********************************\n");
+	printf("	**Upisujem ch=0 u /dev/imdct.**\n");
+	printf("	********************************\n");
+	
+	fputs("ch=0",fp);
+	
+	if(fclose(fp)){
+		
+		printf("Problem pri zatvaranju /dev/imdct.\n");
+		return -1;	
+    }
 
 
 	return 0;
