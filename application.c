@@ -108,10 +108,8 @@ int main(void){
 fa = fopen("/dev/IMDCT", "w");
 	
 	if(fa==NULL){
-		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
-		
 	}
 	sleep(0.5);
 	printf("	********************************\n");
@@ -121,7 +119,6 @@ fa = fopen("/dev/IMDCT", "w");
 	fputs("block_type_00 = 0",fa);
 	
 	if(fclose(fa)){
-		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
@@ -129,10 +126,8 @@ fa = fopen("/dev/IMDCT", "w");
 fb = fopen("/dev/IMDCT", "w");
 	
 	if(fb==NULL){
-		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
-		
 	}
 	sleep(0.5);
 	printf("	********************************\n");
@@ -142,7 +137,6 @@ fb = fopen("/dev/IMDCT", "w");
 	fputs("block_type_01 = 0",fb);
 	
 	if(fclose(fb)){
-		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
@@ -150,10 +144,8 @@ fb = fopen("/dev/IMDCT", "w");
 fc = fopen("/dev/IMDCT", "w");
 	
 	if(fc==NULL){
-		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
-		
 	}
 	sleep(0.5);
 	printf("	********************************\n");
@@ -163,7 +155,6 @@ fc = fopen("/dev/IMDCT", "w");
 	fputs("block_type_10 = 0",fc);
 	
 	if(fclose(fc)){
-		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
@@ -171,10 +162,8 @@ fc = fopen("/dev/IMDCT", "w");
 fd = fopen("/dev/IMDCT", "w");
 	
 	if(fd==NULL){
-		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
-		
 	}
 	sleep(0.5);
 	printf("	********************************\n");
@@ -184,7 +173,6 @@ fd = fopen("/dev/IMDCT", "w");
 	fputs("block_type_10 = 0",fd);
 	
 	if(fclose(fd)){
-		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
@@ -192,10 +180,8 @@ fd = fopen("/dev/IMDCT", "w");
 fe = fopen("/dev/IMDCT", "w");
 	
 	if(fe==NULL){
-		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
-		
 	}
 	sleep(0.5);
 	printf("	********************************\n");
@@ -205,7 +191,6 @@ fe = fopen("/dev/IMDCT", "w");
 	fputs("block_type_11 = 0",fe);
 	
 	if(fclose(fe)){
-		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
@@ -213,10 +198,8 @@ fe = fopen("/dev/IMDCT", "w");
 fg = fopen("/dev/IMDCT", "w");
 	
 	if(fg==NULL){
-		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
-		
 	}
 	sleep(0.5);
 	printf("	********************************\n");
@@ -226,7 +209,6 @@ fg = fopen("/dev/IMDCT", "w");
 	fputs("gr = 0",fg);
 	
 	if(fclose(fg)){
-		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
@@ -234,10 +216,8 @@ fg = fopen("/dev/IMDCT", "w");
 fh = fopen("/dev/IMDCT", "w");
 	
 	if(fh==NULL){
-		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
-		
 	}
 	sleep(0.5);
 	printf("	********************************\n");
@@ -246,8 +226,7 @@ fh = fopen("/dev/IMDCT", "w");
 	
 	fputs("ch = 0",fh);
 	
-	if(fclose(fh)){
-		
+	if(fclose(fh)){	
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
@@ -255,10 +234,8 @@ fh = fopen("/dev/IMDCT", "w");
 fl = fopen("/dev/IMDCT", "w");
 	
 	if(fl==NULL){
-		
 		printf("Nije moguce otvoriti /dev/IMDCT.\n");
 		return -1;
-		
 	}
 	sleep(0.5);
 	printf("	********************************\n");
@@ -268,7 +245,6 @@ fl = fopen("/dev/IMDCT", "w");
 	fputs("start = 1",fl);
 	
 	if(fclose(fl)){
-		
 		printf("Problem pri zatvaranju /dev/IMDCT.\n");
 		return -1;	
     }
