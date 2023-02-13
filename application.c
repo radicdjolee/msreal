@@ -13,7 +13,7 @@ int main(void){
 	int  *bram_a_txt_array, *bram_b_txt_array;
     long numbytes;
     
-//*****************************************reading from .txt and storing data in array**********************//
+//**********************reading from bram_a.txt and storing data in array**********************//
 
     textfile = fopen("bram_a.txt","r");
     if (textfile == NULL) {
@@ -37,6 +37,7 @@ int main(void){
 	printf("\n");
 	printf("********************************\n");
 
+//**********************reading from bram_b.txt and storing data in array**********************//
 
     textfile = fopen("bram_b.txt","r");
     if (textfile == NULL) {
@@ -59,6 +60,26 @@ int main(void){
 	printf(buffer_bram_b);
 	printf("\n");
 	printf("********************************\n");
+
+//***************************UPISUJEMO U /dev/bram_1***************************//
+
+	fp = fopen("/dev/bram_a", "w");
+	
+	if(fp==NULL){
+		
+		printf("Nije moguce otvoriti /dev/bram_a.\n");
+		return -1;
+		
+	}
+
+	fputs(buffer_bram_a,fp);
+	if(fclose(fp)){
+		
+		printf("Problem pri zatvaranju /dev/bram_a.\n");
+		return -1;	
+		
+	}
+
 
 //**************************************************************************************************************//
 /*
